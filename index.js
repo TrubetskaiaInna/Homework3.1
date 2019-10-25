@@ -16,6 +16,14 @@ class ListNode {
   set setValueNode (val) {
     this.value = val
   }
+
+  get getNextNode () {
+    return this.next
+  }
+
+  get getPrevNode () {
+    return this.prev
+  }
 }
 
 const node1 = new ListNode()
@@ -41,4 +49,6 @@ node2.setValueNode = 2
 node3.setValueNode = 3
 node4.setValueNode = 4
 node5.setValueNode = 5
+
+
 
