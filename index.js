@@ -18,11 +18,32 @@ class ListNode {
   }
 
   get getNextNode () {
-    return this.next
+    if (this.value === null) {
+      console.log('This node is not')
+      return null
+    } else {return this.next}
   }
 
   get getPrevNode () {
-    return this.prev
+    if (this.value === null) {
+      console.log('This node is not')
+      return null
+    } else {return this.prev}
+  }
+
+  cutNode () {
+    if (this.prev !== null) {
+      this.prev.next = this.next
+      this.value = null
+    }
+    if (this.next !== null) {
+      this.next.prev = this.prev
+      this.value = null
+    }
+    if (this.prev === null && this.next === null) {
+      this.value = null
+      console.log('Cut the last node')
+    }
   }
 }
 
