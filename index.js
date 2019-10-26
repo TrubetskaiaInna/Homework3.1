@@ -144,3 +144,18 @@ node2.setValueNode = 2
 node3.setValueNode = 3
 node4.setValueNode = 4
 node5.setValueNode = 5
+
+node2.cutNode()
+node1.swapNode(node4)
+node4.cutNode()
+node5.swapNode(node1)
+console.log('prev 1', node1.getPrevNode)
+console.log('next 1', node1.getNextNode)
+console.log('prev 2', node2.getPrevNode)
+console.log('next 2', node2.getNextNode)
+console.log('prev 3', node3.getPrevNode)
+console.log('next 3', node3.getNextNode)
+console.log('prev 4', node4.getPrevNode)
+console.log('next 4', node4.getNextNode)
+console.log('prev 5', node5.getPrevNode)
+console.log('next 5', node5.getNextNode)
