@@ -42,7 +42,81 @@ class ListNode {
     }
     if (this.prev === null && this.next === null) {
       this.value = null
-      console.log('Cut the last node')
+      console.log('Cut out the last node')
+    }
+  }
+
+  swapNode (node) {
+    const prev1 = this.prev
+    const prev2 = node.prev
+    const next1 = this.next
+    const next2 = node.next
+    if (this.value === null || node.value === null) {
+      console.log('No nodes for swap')
+    } else {
+      if (this.prev === null && node.next === null) {
+        this.next = null
+        this.prev = node.prev
+        node.prev = null
+        node.next = this.next
+        next1.prev = node
+        prev2.next = this
+      } else {
+        if (this.next === null && node.prev === null) {
+          this.next = node.next
+          this.prev = null
+          node.prev = prev1
+          node.next = null
+          prev1.next = node
+          next2.prev = this
+        }
+      }
+      if (node === next1) {
+        node.next = this
+        node.prev = prev1
+        this.next = next2
+        this.prev = node
+        if (next2 !== null) {
+          next2.prev = this
+        }
+        if (prev1 !== null) {
+          prev1.next = node
+        }
+      } else if (this === next2) {
+        this.next = node
+        this.prev = prev2
+        node.next = next1
+        node.prev = this
+        if (next1 !== null) {
+          next1.prev = node
+        }
+        if (prev2 !== null) {
+          prev2.next = this
+        }
+      }
+      else {
+        if (prev1 !== null) {
+          prev1.next = node
+          node.next = next1
+        } else {
+          node.next = next1
+        }
+        if (prev2 !== null) {
+          prev2.next = this
+          this.next = next2
+          node.prev = prev1
+        } else {
+          this.next = next2
+          node.prev = prev1
+        }
+        if (next2 !== null) {
+          next2.prev = this
+          this.prev = prev2
+        }
+        if (next1 !== null) {
+          next1.prev = node
+        }
+      }
     }
   }
 }
@@ -70,6 +144,3 @@ node2.setValueNode = 2
 node3.setValueNode = 3
 node4.setValueNode = 4
 node5.setValueNode = 5
-
-
-
